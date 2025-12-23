@@ -1,8 +1,14 @@
 # Firewalls
 
+## Índice
+1. [Características](#Características)
+2. [Gerações](#Gerações)
+3. [DMZ](#DMZ)
+4. [Firewall mais a fundo](#Componentes-internos-dos-firewalls)
+
+## Características
 Firewalls são sistemas que filtram o tráfico na rede.
 
-## Características das regras de firewalls
 A maioria dos firewalls são top-down, ou seja, aplicam as regras de cima das listas para baixo.
 
 É normal as regras e políticas de firewall permitirem ou não a entrada de pacotes a partir de fontes, remetentes, conteúdo malicioso e outros parâmetros. Quando um firewall acusa o pacote de cair em uma dessas políticas, a regra pode estar configurada para gerar um:
@@ -32,16 +38,22 @@ Por realizar maiores trabalhos, esse firewall demanda mais tempo em operação e
 ### 3ª geração - Proxy Firewall (1991)
 Firewall e proxy são duas tecnologias de segurança diferentes, mas os firewalls de proxy combinam as duas funcionalidades, gerando um firewall muito mais eficiente.
 
-Firewalls de proxy usam as funcionalidades dos firewalls anteriores, mas os combinam com servidor intermediário (proxy) que é responsável não só por interceptar as conexões, como também analisar seu conteúdo mais profundamente. A partir disso, os firewalls da 3ª geração atuam também na camada 7, identificando os seus diferentes procolos (HTTP, FTP, POP3), analisando-os com base em riscos conhecidos desses tipos de pacotes e então permitindo ou não a passagem do pacote. Por ser um proxy, estes firewalls usam o método NAT, mascarando os IPs do serviço a ser protegido, gerando ainda mai segurança e sigilo ao sistema.
+Firewalls de proxy usam as funcionalidades dos firewalls anteriores, mas os combinam com proxies reversos (proxies de aplicação). A partir disso, os firewalls da 3ª geração atuam **também na camada 7**, identificando os seus diferentes procolos (HTTP, FTP, POP3), analisando-os com base em riscos conhecidos desses tipos de pacotes e então permitindo ou não a passagem do pacote. Por ser um proxy, estes firewalls usam o método NAT, mascarando os IPs do serviço a ser protegido e gerando ainda mais segurança e sigilo ao sistema.
 
-Atualmente esse tipo de firewall vem evoluindo e ganhando mais destaque com o surgimento do ***Web Application Firewalls***(WAFs). WAFs são firewalls de proxy focados em conexões web (principalmente a HTTP), mas tem um foco em proteger empresas. Dessa forma, os WAFs vão funcionar principalmente como proxies-reversos, interceptando a informação do servidor (quem fornece a página web) ao invés do cliente (quem pede a página web).
+Atualmente esse tipo de firewall vem evoluindo e ganhando mais destaque com o surgimento do ***Web Application Firewalls***(WAFs). WAFs são derivações dos firewalls de proxy focados em conexões web (principalmente a HTTP), mas tem um foco especial em **proteger empresas**. Dessa forma, os WAFs vão funcionar principalmente como proxies-reversos, interceptando a informação do servidor (quem fornece a página web) ao invés do cliente (quem pede a página web).
 
 ### 4ª geração - Firewall estável e doméstica
-- ***Next Generation Fiewall***  (NGFW): é um tipo de firewall atual que combina as tecnologias passadas de firewall com tecnologias anti-malware. Entre elas, estão antivirus, *Intrusion Prevention System *e *Intrusion Detection System.*
+- ***Next Generation Fiewall***  (NGFW): é um tipo de firewall atual que combina as tecnologias passadas de firewall com tecnologias de segurança, como antivirus, *Intrusion Prevention System* (IPS) e *Intrusion Detection System*(IDS).
     - Exemplos:
 - ***Unified Threat Management*** (UTM)
 É um sistema que unifica várias soluções de seguranças comuns em mabvientes empresariais em um único software de gestão e visualização. Entre as soluções que mais fazem partes de UTMs, estão os: firewall, proxy, antivirus, antispam, etc.
     - Exemplos: 
+
+### WAF vs IPDS
+O IPDS é a junção do IPS e IDS. É interessante perceber como a a evolução do WAF e o IPDS é parecido: adicionar monitoramento e ações de segurança nos sistemas de firewall. Mas qual a diferença entre eles? Em resumo, o WAF é mais abrangente em sua defesa. Como o WAF foca na melhora através do proxy firewall, sua defesa foca tanto em detectar e previnir ameaças na camada 2, 3 e 4, quanto na camada 7. Já o IPDS se especializa em mecanismos de prevenção e defesa das camadas 2, 3 e 4. Qual deles é melhor? Depende do que a sua empresa procura e o que a sua infraestrutura de rede pede.
+
+## DMZ
+Uma das funcionalidades do Firewall é o Desmilitarized Zone
 
 ## Componentes internos dos firewalls
 As regras e políticas dos firewalls são organizadas em tabelas, cada uma com uma série de *chains* (divisão de políticas). As tabelas e regras a seguir são as existentes por padrão no firewall IPTables, mas outros firewalls podem possuir outros, além de alguns, como o NFTables, não serem entregues com nenhum.
@@ -73,7 +85,6 @@ Possui as chains:
 A imagem a seguir mostra um modelo de proxy padrão.
 ```
 Sendo A e B computadores da sua rede interna:
-
 
     A
     ^

@@ -1,0 +1,7 @@
+# Ferramentas OSINT
+
+Ferramentas *Open Source Intelligence* consistem em verdadeiros "buscadores web especializados". Eles varrem os dados abertos da internet à procura de insights e dados relevantes para a segurança da sua empresa. Procuram desde websites referências até redes sociais. A partir disso, os diferentes buscadores OSINT apresentam funcionalidades diferentes de tratamento dos dados.
+
+São ferramentas muito relevantes ao considerarmos o quão abertas as pessoas são sobre os seus dados na internet. É comum que as pessoas informem dados pessoais, revelem onde estão naquele exato momento e até anunciem conquistas. Esta última em específico pode ser muito útil, já que da mesma forma é comum que um golpista fale para alguém que foi o responsável por um ataque a partir de um fóruns. Também é comum organizar golpes orquestrados por grupos nas redes sociais. Daí a importância do OSINT.
+
+Existem várias abordagens de ferramentas OSINT usam, já que o termo *Open Source Intelligence* se refere a procura dos dados abertos, mas não como são tratados. Algumas ferramentas entram em fóruns e sites de notícias quentes sobre Cybersegurança pelo mundo e atualizam os clientes sobre os acontecimentos. Algumas outras ferramentas buscam correlações entre os dados em diferentes plataformas a fim de criar mapear perfis e entidades a fim da internet. No fim, o OSINT quase sempre cairá como alguma ferramenta que irá tratar os dados abertos a fim de facilitar a investigação da Inteligência de Ameaças.
