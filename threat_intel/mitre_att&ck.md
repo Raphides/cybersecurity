@@ -7,6 +7,7 @@
 - Dissecação dos principais ataques e técnicas de cybersegurança.
 - Mapeamento de ataques segundo a Matriz ATT&CK.
 
+
 ### Pirâmide da Dor (por David Bianco)
 
 Em relação ao comportamento do atacante, a *pirâmide da dor* mapea o que é fácil e difícil do atacante mudar. Mudar o hash que ele usa ou o seu endereço de IP é fácil, mas mudar de ferramentas e artefatos da rede começa a ser mais difícil. Atacantes especializados são humanos iguais a nós, eles vão ter mais preguiça e dificuldade em realizar tarefas difíceis e demoradas.
@@ -26,9 +27,9 @@ Cada um elemento em cada um desses três níveis possui uma página web própria
 ### Casos de Uso
 
 - Detecção de ameaças.
-- Linguagem comum entre profissionais de Cybersegurança e consumidores dessa informação.
+- Linguagem comum entre profissionais de Cybersegurança e consumidores dessa informação. A maior parte dos relatórios de ataques de cybersegurança utilizam termos específicos do MITRE ATT&CK.
 - Simulação de ataques.
-- Mapeamento de ataques do Red Team.
+- Mapeamento de ataques do Red Team. A maior parte dos relatórios de ataque de cybersegurança mapeiam os ataques analisados via MITRE ATT&CK. 
 
 ### Como mapear um ataque para o ATT&CK?
 

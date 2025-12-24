@@ -1,12 +1,14 @@
 # Frameworks
 
-## Kill Chain
+## Kill Chain (2011)
 
 ## Kali Linux
 
 ## NIST framework
 
-## Mitre Att&ck
+## Diamond Model (201)
+
+## Mitre Att&ck (2014)
 
 ## ISO 27.001 e 27.002
 

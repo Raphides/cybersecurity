@@ -1,16 +1,17 @@
 # "Funções" Hash
 
-É uma "função" matemática que recebe um input de tamanho indeterminado e devolve um identificador único de tamanho fixo e não pode ser reversível. O segredo dos hashes é que uma pequena alteração gera um hash completamente diferente um do outro.
-
-Portanto Hashes trabalham com identificação e integridade.
+É uma "função" matemática que recebe um **input de tamanho indeterminado** e devolve um **identificador único** de **tamanho fixo** que **não pode ser revertido** ao input original. O diferencial dos algorítmos de hash é que duas informações similares com uma diferença mínima de um único bit **geram hashes completamente diferente um do outro**.
 
 ## Aplicações
-- Verificação de transferência de arquivos.
+Hash normalmente está relacionado com identificação e integridade.
+
+- **Verificação de integridade na transferência de arquivos**: ao realizar o hashing de um arquivo antes e depois da transferência, caso os hashes resultantes continuem iguais, o arquivo também permanece o mesmo.
+- **Armazenamento de senhas para futuras autenticações**: ao invés de armazenar a senha no sistema e dar chance ao atacante fazer uma forense e ler a senha armazenada, o Linux salva somente o hash das senhas no `/etc/shadow`. Dessa forma, quando um usuário inserir a senha para fazer login, o input dele entra no algorítimo de hash do sistema e o hash resultante é comparado com o hash da senha. Se forem iguais, o input inserido de fato era a senha.
 
 ## Característiscas:
 - Input de tamanho e valor varíavel. Usa-se todo o conteúdo dos arquivos, byte a byte.
-- Output fixo e extremamente variado por mudança.
-- Se H(in) = out é a função Hash, (1/H)(out) não é possível ser feito ou não gera o input
+- Output de tamanho fixo, mas conteúdo extremamente variado a cada mudança, seja ela a mínima que for.
+- Se H(in) = out é a função Hash, não há como conseguir *in* novamente através somente da informação *out*.
 
 ## Colisões
 
@@ -24,12 +25,12 @@ Algorítmos de hashing podem possuir colisões, ou seja, inputs diferentes que g
     - SHA384
     - SHA512
 
-## Brute Force, Raimbow table, Salt e charound
+## Brute Force, Rainbow table, Salt e charound
 ***Brute Force*** (força bruta) é um ataque que usa de tentativas repetitivas, de input e output para achar correspondências ou padrões. Se um algorítimo de hash é muito pequeno, ele pode ser quebrado à força. Mas sendo um pouco maior, pode demorar séculos até quebrar.
 
-Semelhante a força bruta, ***raimbow tables*** são grandes bancos de dados que mapearam alguns padrões conhecidos e clássico do hash, ajudando por exemplo a quebrar senhas comuns, como "adminadmin" ou "12345"
+**Ataques por *rainbow tables*** são uma alternativa ao brute force. A expressão *rainbow table* se refere a grandes bancos de dados que mapearam alguns padrões conhecidos e clássicos de output do algorítmo de hash para inputs comuns, ajudando por exemplo a quebrar senhas como "adminadmin" ou "12345".
 
-A fim de contornar raimbow tables, também usam-se ***salts*** no hash. Salts são uma sequência aleatória de texto ou baseada em algum outro fator difícil de replicar. O Salt entra no hash também e muda completamente o output do hash.
+A fim de contornar rainbow tables, usam-se ***salts*** no algorítmo de hash. Salts são uma sequência aleatória de texto ou baseada em algum outro fator difícil de replicar. O Salt é concatenado ao input do algorítmo de hash e por isso muda completamente o hash resultante.
 
 
 ```
@@ -38,18 +39,16 @@ Exemplo com hash no /etc/shadow do linux
 fulano:$1$dawdgsad$sALDKA~DDAWLSfawfsahgkul:130422:0:99999:30:::
 
 
-Estrutura:
+Estrutura (separado por ":"):
 
-user :$
-algorítmo $
-sal $
-output hash :
+usuário :
+$ algorítmo $ sal $ hash resultante :
 ultima data de modificação :
 mínimo de dias para liberar modificação de senha :
 máximo de dias para liberar modificação de senha :
-dias para avisarexpiração da senha :
-dias de bloqueio após senha expirada 
-expiração da conta
+nº de dias antes da senha expirar para avisar da expiração:
+nº de dias após senha expirada em que a conta será desabilitada:
+data de expiração da conta):
 ```
 
 
