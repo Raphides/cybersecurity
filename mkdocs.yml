@@ -1,0 +1,21 @@
+site_name: My Docs
+repo_url: https://github.com/Raphides/cybersecurity
+site_description: Introdução e aprofundamento em conceitos de segurança cibernética
+site_author: Raphael M.
+
+theme:
+  name: material
+  language: pt-BR
+  palette:
+  - scheme: default
+    toggle:
+      icon: material/brightness-7 
+      name: Clique para trocar para Modo Escuro
+    primary: green
+
+  - scheme: slate
+    toggle:
+      icon: material/brightness-4
+      name: Clique para trocar para Modo Claro
+    primary: green
+    
